@@ -46,19 +46,4 @@ struct ContentView: View {
     ContentView()
 }
 
-struct ItemView: View {
-    
-    let text: String
-    let done: Bool
-    
-    var body: some View {
-        Label(
-            title: {
-                Text(text)
-            },
-            icon: {
-                Image(systemName: done == true ? "checkmark.circle" : "circle")
-            }
-        )
-    }
-}
+
