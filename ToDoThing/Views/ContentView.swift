@@ -20,9 +20,21 @@ struct ContentView: View {
         NavigationView {
             
             VStack {
-                List(todos) { todo in
+                List($todos) { $todo in
                     
                     ItemView(currentItem: todo)
+                        .swipeActions {
+                            Button(
+                                "Delete",
+                                role: .destructive,
+                                action: {
+                                    delete(todo)
+                                }
+                            )
+                        }
+                        .onTapGesture {
+                            todo.done.toggle()
+                        }
                 
                 }
                 .searchable(text: $searchText)
@@ -48,7 +60,16 @@ struct ContentView: View {
             done: false
         )
         todos.append(todo)
+        
+        searchText = ""
     }
+    
+    func delete(_ todo: TodoItem) {
+        todos.removeAll() { currentItem in
+            currentItem.id == todo.id
+        }
+    }
+    
 }
 
 #Preview {
