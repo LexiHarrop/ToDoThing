@@ -9,21 +9,20 @@ import SwiftUI
 
 struct ItemView: View {
     
-    let text: String
-    let done: Bool
+    let currentItem: TodoItem
     
     var body: some View {
         Label(
             title: {
-                Text(text)
+                Text(currentItem.text)
             },
             icon: {
-                Image(systemName: done == true ? "checkmark.circle" : "circle")
+                Image(systemName: currentItem.done == true ? "checkmark.circle" : "circle")
             }
         )
     }
 }
 
 #Preview {
-    ItemView(text: "yes", done: false)
+    ItemView(currentItem: firstItem)
 }

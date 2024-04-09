@@ -20,9 +20,9 @@ struct ContentView: View {
             VStack {
                 List {
                     
-                    ItemView(text: "Study for Chemistry quiz", done: false)
-                    ItemView(text: "Finish Computer Science assignment", done: true)
-                    ItemView(text: "Go for a run around campus", done: false)
+                    ItemView(currentItem: firstItem)
+                    ItemView(currentItem: secondItem)
+                    ItemView(currentItem: thirdItem)
                 
                 }
                 .searchable(text: $searchText)
