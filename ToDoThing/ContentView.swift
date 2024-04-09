@@ -20,20 +20,10 @@ struct ContentView: View {
             VStack {
                 List {
                     
-                    Label(
-                        title: { Text("Study for Chemistry quiz") },
-                        icon: { Image(systemName: "circle")}
-                    )
-                    Label(
-                        title: { Text("Finish Computer Science assignment") },
-                        icon: { Image(systemName: "circle")}
-                    )
-                    
-                    Label(
-                        title: { Text("Go for a run around campus") },
-                        icon: { Image(systemName: "circle")}
-                    )
-                    
+                    ItemView(text: "Study for Chemistry quiz", done: false)
+                    ItemView(text: "Finish Computer Science assignment", done: true)
+                    ItemView(text: "Go for a run around campus", done: false)
+                
                 }
                 .searchable(text: $searchText)
                 
@@ -54,4 +44,25 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+}
+
+struct ItemView: View {
+    
+    let text: String
+    let done: Bool
+    
+    var body: some View {
+        Label(
+            title: {
+                Text(text)
+            },
+            icon: {
+                if (done == true) {
+                    Image(systemName: "checkmark.circle")
+                } else {
+                    Image(systemName: "circle")
+                }
+            }
+        )
+    }
 }
