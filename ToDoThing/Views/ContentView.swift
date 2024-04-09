@@ -30,15 +30,24 @@ struct ContentView: View {
                 HStack {
                     TextField("Enter a to-do item", text: $newItemDescription)
                     Button("ADD") {
-                        
+                        createToDo(withTitle: newItemDescription)
                     }
                     .font(.caption)
+                    .disabled(newItemDescription.isEmpty == true)
                 }
                 .padding(20)
                 
             }
             .navigationTitle("To do")
         }
+    }
+    
+    func createToDo(withTitle title: String) {
+        let todo = TodoItem(
+            text: title,
+            done: false
+        )
+        todos.append(todo)
     }
 }
 
