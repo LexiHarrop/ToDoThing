@@ -13,16 +13,16 @@ struct ContentView: View {
     
     @State var searchText = ""
     
+    @State var todos: [TodoItem] = exampleItems
+    
     var body: some View {
         
         NavigationView {
             
             VStack {
-                List {
+                List(todos) { todo in
                     
-                    ItemView(currentItem: firstItem)
-                    ItemView(currentItem: secondItem)
-                    ItemView(currentItem: thirdItem)
+                    ItemView(currentItem: todo)
                 
                 }
                 .searchable(text: $searchText)
