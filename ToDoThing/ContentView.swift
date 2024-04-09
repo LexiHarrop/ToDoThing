@@ -23,6 +23,17 @@ struct ContentView: View {
                     Text("Finish Computer Science assignment")
                     Text("Go for a run around campus")
                 }
+                .searchable(text: $searchText)
+                
+                HStack {
+                    TextField("Enter a to-do item", text: $newItemDescription)
+                    Button("ADD") {
+                        
+                    }
+                    .font(.caption)
+                }
+                .padding(20)
+                
             }
             .navigationTitle("To do")
         }
