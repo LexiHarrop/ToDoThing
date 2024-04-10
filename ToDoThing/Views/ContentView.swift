@@ -39,7 +39,7 @@ struct ContentView: View {
                 
                 HStack {
                     TextField("Enter a to-do item", text: $newItemDescription)
-                    Button("ADD") {
+                        Button("ADD") {
                         createToDo(withTitle: newItemDescription)
                     }
                     .font(.caption)
